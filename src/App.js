@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Application from './containers/Application'
-import './styles/application.css'
+import './styles/application/application.css'
 import { Provider } from 'react-redux';
 import store from './ducks/store';
 

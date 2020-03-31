@@ -1,0 +1,15 @@
+$themeBG: #121212;
+$contentBG: #1E1E1E;
+$navBG: #474FC4;
+$themeNonFocused: #474747;
+$textNormal: rgba(255, 255, 255, .87);
+$textNonFocused: rgba(255, 255, 255, .60);
+
+body {
+    background-color: $themeBG;
+    color: $textNormal;
+}
+
+.content {
+    background-color: $contentBG;
+}
