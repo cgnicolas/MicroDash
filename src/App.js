@@ -3,7 +3,9 @@ import './App.css';
 import Application from './containers/Application'
 import './styles/application/application.css'
 import { Provider } from 'react-redux';
-import store from './ducks/store';
+import configureStore from './ducks/store';
+
+const store = configureStore();
 
 function App() {
   return (

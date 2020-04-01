@@ -1,11 +1,6 @@
-const initialState = {
-    msg: 'Redux Working'
-};
+import { combineReducers } from 'redux';
+import services from './services/reducer';
 
-function reducer(state = initialState, action) {
-    console.log("REducing")
-    console.log(state);
-    return state;
-}
-
-export default reducer;
+export default combineReducers({
+    services
+})
