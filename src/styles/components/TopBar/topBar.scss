@@ -1,0 +1,14 @@
+$topBarBG: #474FC4;
+.topbar-container {
+    background-color: $topBarBG;
+}
+
+.topbar-content { 
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: row;
+}
+.topbar-subheading {
+    display: flex;
+    padding-top: 1em;
+}
