@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../styles/containers/NavBar/NavBar.css';
 import { fetchServices } from '../../ducks/reducers/services/actions'
-import ServiceButton from '../../components/ServiceButton'
-
+import ServiceButton from '../../components/NavBar/ServiceButton'
+import HomeButton from './HomeButton'
 import { 
     selectReduxStatusMessage,
     selectServices,
@@ -12,6 +12,10 @@ import {
 import {
     updatePage
 } from '../../ducks/reducers/application/actions'
+
+import {
+    selectCurrentPage
+} from '../../ducks/reducers/application/reducer'
 
 import { connect } from 'react-redux';
 
@@ -23,22 +27,27 @@ class NavBarContainer extends Component {
     }
 
     render() {
-        const {isPending, services, updateCurrentPage} = this.props;
+        const {isPending, services, updateCurrentPage, currentPage} = this.props;
         return (
             <React.Fragment>
                 <div className='navbar-container'>
-                    <div>
-                        HomeButton
+                    <HomeButton/>
+                    <div className="service-container">
+                        {isPending ? (
+                            <p>Pending</p>
+                        ) : (
+                            services.map((service, index) => {
+                                return (
+                                    <ServiceButton 
+                                        name={service.name} 
+                                        key={index} 
+                                        updateCurrentPage={updateCurrentPage}
+                                        selected={currentPage === service.name}
+                                    />
+                                )
+                            })
+                        )}
                     </div>
-                    {isPending ? (
-                        <p>Pending</p>
-                    ) : (
-                        services.map((service, index) => {
-                            return (
-                                <ServiceButton name={service.name} key={index} updateCurrentPage={updateCurrentPage}/>
-                            )
-                        })
-                    )}
                 </div>
             </React.Fragment>
         );
@@ -48,7 +57,8 @@ class NavBarContainer extends Component {
 const mapStateToProps = state => ({
     successMSG: selectReduxStatusMessage(state),
     services: selectServices(state),
-    isPending: selectPending(state)
+    isPending: selectPending(state),
+    currentPage: selectCurrentPage(state)
 });
 
 const mapDispatchToProps = {

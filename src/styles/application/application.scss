@@ -1,17 +1,11 @@
-$themeBG: #121212;
-$contentBG: #1E1E1E;
-$navBG: #474FC4;
-$themeNonFocused: #474747;
-$textNormal: rgba(255, 255, 255, .87);
-$textNonFocused: rgba(255, 255, 255, .60);
-
+@import '../colors.scss';
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: $themeBG;
+    background-color: $contentBG;
     color: $textNormal;
     display: 'flex'
 }

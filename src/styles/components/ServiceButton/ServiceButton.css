@@ -2,8 +2,20 @@ button {
   width: 100%;
   padding: 1em;
   font-size: 1.5em;
-  background-color: grey;
+  background-color: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.home {
+  background-color: #1E1E1E;
+}
+
+.selected {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+*:focus {
+  outline: none;
 }
 /*# sourceMappingURL=ServiceButton.css.map */

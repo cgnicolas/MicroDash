@@ -1,7 +1,12 @@
 .navbar-container {
+  background-color: #121212;
   width: 20%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.serviceContainer {
+  overflow: scroll;
 }
 /*# sourceMappingURL=NavBar.css.map */

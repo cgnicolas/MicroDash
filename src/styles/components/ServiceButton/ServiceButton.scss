@@ -1,9 +1,19 @@
-$textNormal: rgba(255, 255, 255, .87);
+@import '../../colors.scss';
 button {
     width: 100%;
     padding: 1em;
     font-size: 1.5em;
-    background-color: grey;
+    background-color: transparent;
     border: none;
+    color: $textNonFocused;
+}
+.home {
+    background-color: $contentBG;
+}
+.selected {
     color: $textNormal;
+}
+
+*:focus {
+    outline:none;
 }

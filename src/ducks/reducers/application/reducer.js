@@ -14,3 +14,5 @@ export default function root(state = initialState, action){
             return state;
     }
 }
+
+export const selectCurrentPage = state => state.root.currentPage;
