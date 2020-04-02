@@ -13,8 +13,14 @@ $textNonFocused: rgba(255, 255, 255, .60);
 body {
     background-color: $themeBG;
     color: $textNormal;
+    display: 'flex'
 }
 
 .content {
     background-color: $contentBG;
+}
+.appcontainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

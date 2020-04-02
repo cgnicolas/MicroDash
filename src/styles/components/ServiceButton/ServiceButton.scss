@@ -1,0 +1,9 @@
+$textNormal: rgba(255, 255, 255, .87);
+button {
+    width: 100%;
+    padding: 1em;
+    font-size: 1.5em;
+    background-color: grey;
+    border: none;
+    color: $textNormal;
+}

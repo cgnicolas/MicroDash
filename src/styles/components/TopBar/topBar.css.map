@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AACA,AAAA,iBAAiB,CAAC;EACd,gBAAgB,EAFT,OAAO;CAGjB;;AAED,AAAA,eAAe,CAAC;EACZ,OAAO,EAAE,OAAO;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CACtB;;AACD,AAAA,kBAAkB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,GAAG;CACnB",
     "sources": [
-        "topBar.scss"
+        "TopBar.scss"
     ],
     "names": [],
-    "file": "topBar.css"
+    "file": "TopBar.css"
 }

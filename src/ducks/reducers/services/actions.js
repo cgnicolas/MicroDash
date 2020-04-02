@@ -38,7 +38,6 @@ export function fetchServices(){
             if(res.error){
                 throw(res.error);
             }
-            console.log(res.body);
             dispatch(fetchServicesSuccess(res.body));
             return res.body;
         })

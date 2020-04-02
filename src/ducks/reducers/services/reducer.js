@@ -1,7 +1,6 @@
 import {FETCH_SERVICES_ERROR, FETCH_SERVICES_PENDING, FETCH_SERVICES_SUCCESS} from './actions';
-import {select } from 'redux';
 const initialState = {
-    pending: false,
+    pending: true,
     services: [],
     error: null,
     successMSG: 'Redux Working'
@@ -26,11 +25,14 @@ function reducer(state = initialState, action) {
                 pending: false,
                 error: action.error
             }
+        default:
+            return state;
     }
-    return state;
 }
 
 export const selectReduxStatusMessage = state => state.services.successMSG;
+export const selectServices = state => state.services.services;
+export const selectPending = state => state.services.pending;
 
 
 export default reducer;
