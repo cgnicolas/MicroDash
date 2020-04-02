@@ -4,9 +4,12 @@ import '../styles/components/ServiceButton/ServiceButton.css'
 class ServiceButton extends Component {
 
     render() {
-        const { name } = this.props;
+        const { name, updateCurrentPage } = this.props;
         return (
-            <button className='button'>
+            <button 
+                className='button'
+                onClick={() => updateCurrentPage(name)}
+            >
                 {name}
             </button>
         );

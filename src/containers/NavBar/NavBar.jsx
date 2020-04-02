@@ -8,6 +8,11 @@ import {
     selectServices,
     selectPending
 } from '../../ducks/reducers/services/reducer'
+
+import {
+    updatePage
+} from '../../ducks/reducers/application/actions'
+
 import { connect } from 'react-redux';
 
 class NavBarContainer extends Component {
@@ -18,7 +23,7 @@ class NavBarContainer extends Component {
     }
 
     render() {
-        const {isPending, services} = this.props;
+        const {isPending, services, updateCurrentPage} = this.props;
         return (
             <React.Fragment>
                 <div className='navbar-container'>
@@ -30,7 +35,7 @@ class NavBarContainer extends Component {
                     ) : (
                         services.map((service, index) => {
                             return (
-                                <ServiceButton name={service.name} key={index}/>
+                                <ServiceButton name={service.name} key={index} updateCurrentPage={updateCurrentPage}/>
                             )
                         })
                     )}
@@ -47,7 +52,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    fetchServices: fetchServices
+    fetchServices: fetchServices,
+    updateCurrentPage: updatePage
 }
 
 
