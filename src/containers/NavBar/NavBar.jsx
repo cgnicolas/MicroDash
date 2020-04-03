@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/containers/NavBar/NavBar.css';
 import { fetchServices } from '../../ducks/reducers/services/actions'
 import ServiceButton from '../../components/NavBar/ServiceButton'
-import HomeButton from './HomeButton'
+import HomeButton from '../../components/NavBar/HomeButton'
 import { 
     selectReduxStatusMessage,
     selectServices,
@@ -31,7 +31,10 @@ class NavBarContainer extends Component {
         return (
             <React.Fragment>
                 <div className='navbar-container'>
-                    <HomeButton/>
+                    <HomeButton 
+                    updateCurrentPage={updateCurrentPage}
+                    selected={currentPage === "Home"}
+                    />
                     <div className="service-container">
                         {isPending ? (
                             <p>Pending</p>
