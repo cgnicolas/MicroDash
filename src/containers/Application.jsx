@@ -8,6 +8,7 @@ import {
 import NavBar from './NavBar/NavBar';
 import TopBar from '../components/TopBar'
 import '../styles/application/application.css'
+import Content from './Content/Content'
 class Application extends Component {
 
     render() {
@@ -16,7 +17,10 @@ class Application extends Component {
             <React.Fragment>
                 <div className='appcontainer'>
                     <TopBar/>
-                    <NavBar/>
+                    <div className='content'>
+                        <NavBar/>
+                        <Content/>
+                    </div>
                 </div>
             </React.Fragment>
         );

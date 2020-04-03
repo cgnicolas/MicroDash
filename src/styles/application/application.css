@@ -5,7 +5,7 @@
 
 body {
   background-color: #1E1E1E;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.95);
   display: 'flex';
 }
 
@@ -14,7 +14,7 @@ body {
 }
 
 .appcontainer {
-  height: 100vh;
+  height: calc(100vh - 30px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,5 +22,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.blah {
+  background-color: blue;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 /*# sourceMappingURL=application.css.map */

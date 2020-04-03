@@ -14,7 +14,18 @@ body {
     background-color: $contentBG;
 }
 .appcontainer {
-    height: 100vh;
+    height: calc(100vh - 30px);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+.blah {
+    background-color: blue;
+    flex: 1;
 }
