@@ -1,15 +1,27 @@
+import '../../styles/containers/Lights/Lights.css'
 import React, { Component } from 'react';
-
+import RoomSelector from '../../components/Lights/RoomSelector'
+import { connect } from 'react-redux';
 class Lights extends Component {
     render() {
         return (
             <React.Fragment>
-                <div>
-                    <p>Lights</p>
-                </div>
+                <RoomSelector/>
             </React.Fragment>
         );
     }
 }
 
-export default Lights;
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Lights);

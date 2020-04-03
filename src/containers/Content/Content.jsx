@@ -14,9 +14,7 @@ class Content extends Component {
         return (
             <React.Fragment>
                 <div className='container'>
-                    {(currentPage === 'Lights') && (
-                        <Lights/>
-                    )}
+                    <Lights/>
                 </div>
             </React.Fragment>
         );
@@ -30,7 +28,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-
+    return {
+        
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);
