@@ -2,15 +2,18 @@ import '../../styles/containers/Lights/Lights.css'
 import React, { Component } from 'react';
 import RoomSelector from '../../components/Lights/RoomSelector'
 import { connect } from 'react-redux';
-import { fetchRooms, updateCurrentRoom } from '../../ducks/reducers/lights/actions'
+import { fetchRooms, updateCurrentRoom, fetchLights } from '../../ducks/reducers/lights/actions'
 import { selectRooms, selectCurrentRoom } from '../../ducks/reducers/lights/reducer';
 import LightSelector from '../../components/Lights/LightSelector';
 class Lights extends Component {
 
     componentDidMount(){
-        const {fetchRooms} = this.props;
+        const {fetchRooms, rooms, fetchLights} = this.props;
         console.log("Fetching rooms");
-        fetchRooms();
+        if(rooms.length === 0){
+            fetchRooms();
+            fetchLights();
+        }
     }
 
     render() {
@@ -39,6 +42,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     fetchRooms,
+    fetchLights,
     updateCurrentRoom,
 }
 

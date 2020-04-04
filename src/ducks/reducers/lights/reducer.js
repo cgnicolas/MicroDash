@@ -1,4 +1,4 @@
-import { FETCH_ROOMS_ERROR, FETCH_ROOMS_PENDING, FETCH_ROOMS_SUCCESS, UPDATE_CURRENT_ROOM } from './actions';
+import { FETCH_ROOMS_ERROR, FETCH_ROOMS_PENDING, FETCH_ROOMS_SUCCESS, UPDATE_CURRENT_ROOM, FETCH_LIGHTS_SUCCESS, FETCH_LIGHTS_PENDING, FETCH_LIGHTS_ERROR } from './actions';
 
 const initialState = {
     rooms: [],
@@ -27,6 +27,23 @@ function reducer(state = initialState, action){
                 ...state,
                 pending: false,
                 error: action.error,
+            }
+        case FETCH_LIGHTS_SUCCESS: 
+            return { 
+                ...state,
+                pending: false,
+                lights: action.lights
+            }
+        case FETCH_LIGHTS_PENDING:
+            return {
+                ...state,
+                pending: true
+            }
+        case FETCH_LIGHTS_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
             }
         case UPDATE_CURRENT_ROOM:
             return {
