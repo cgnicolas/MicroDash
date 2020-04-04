@@ -3,5 +3,5 @@ const serverHost = `http://${raspberryHost}`;
 
 export default {
     getServices: serverHost + '/services/',
-    invokeService: serverHost + '/invoke/'
+    invokeService: serverHost + '/services/invoke/'
 }

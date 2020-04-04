@@ -7,7 +7,7 @@ class ServiceButton extends Component {
         const { name, updateCurrentPage, selected} = this.props;
         return (
             <button 
-                className={'button ' + (selected ? "selected" : null)}
+                className={'button ' + (selected ? "selected-service" : null)}
                 onClick={() => updateCurrentPage(name)}
             >
                 {name}

@@ -1,6 +1,6 @@
 import { UPDATE_CURRENT_PAGE } from './actions'
 const initialState = {
-    currentPage: 'home'
+    currentPage: 'Home'
 }
 
 export default function root(state = initialState, action){

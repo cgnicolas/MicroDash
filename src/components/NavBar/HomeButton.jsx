@@ -5,7 +5,7 @@ class HomeButton extends Component {
         const { selected } = this.props;
         return (
             <button 
-            className={'home ' + (selected ? "selected" : null)}
+            className={'home ' + (selected ? "selected-service" : null)}
             onClick={() => this.props.updateCurrentPage('Home')
             }>
                 Home

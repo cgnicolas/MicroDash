@@ -1,9 +1,9 @@
-.container {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 /*# sourceMappingURL=Content.css.map */

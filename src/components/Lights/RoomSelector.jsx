@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import Room from './Room'
+import '../../styles/components/Lights/RoomSelector/RoomSelector.css'
 
 class RoomSelector extends Component {
 
     populateRooms(rooms){
         return rooms.map((room, index) => {
             return (
-                <p key={index}>{room.name}</p>
+                <Room 
+                    key={index} 
+                    name={room.name}
+                    room={room} 
+                    updateCurrentRoom={this.props.updateCurrentRoom}
+                    selected={this.props.currentRoom.id === room.id}
+                />
             )
         })
     }
     render() {
         const { 
             rooms,
-            updateCurrentRoom
          } = this.props;
         return (
-            <div>
+            <div className='room-selector-container'>
                 {
                     rooms ? (this.populateRooms(rooms)) : (<p>Pending</p>)
                 }

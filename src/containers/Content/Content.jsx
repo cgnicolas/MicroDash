@@ -13,8 +13,10 @@ class Content extends Component {
         const { currentPage } = this.props;
         return (
             <React.Fragment>
-                <div className='container'>
-                    <Lights/>
+                <div className='content-container'>
+                    {(currentPage === 'Lights') && (
+                        <Lights/>
+                    )}
                 </div>
             </React.Fragment>
         );

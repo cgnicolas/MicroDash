@@ -5,10 +5,8 @@ export const FETCH_SERVICES_PENDING = 'FETCH_SERVICES_PENDING';
 export const FETCH_SERVICES_ERROR = 'FETCH_SERVICES_ERROR';
 
 function fetchServicesPending(){
-    console.log("Pending")
     return {
         type: FETCH_SERVICES_PENDING,
-        pending: true
     }
 }
 
@@ -28,7 +26,6 @@ function fetchServicesError(error){
 
 export function fetchServices(){
     return function(dispatch) {
-        console.log("dispatched")
         dispatch(fetchServicesPending())
         fetch(API.getServices)
         .then((res) => {

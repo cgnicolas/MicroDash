@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,GAAG,AAAC,CACA,SAAS,CAAE,GAAG,CACjB",
-    "sources": [
-        "../../src/styles/containers/Lights/Lights.scss"
-    ],
-    "names": [],
-    "file": "Lights.min.css"
-}
