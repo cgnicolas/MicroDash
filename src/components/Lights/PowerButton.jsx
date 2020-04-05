@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 
 class PowerButton extends Component {
     render() {
-        const {powered} = this.props;
+        const {powered, powerLight} = this.props;
         return (
-            <button className={'power-button ' + (powered ? 'powered' : '')}>
+            <button 
+                className={'power-button ' + (powered ? 'powered' : '')}
+                onClick={() => {powerLight()}}
+            >
                 Power
             </button>
         );

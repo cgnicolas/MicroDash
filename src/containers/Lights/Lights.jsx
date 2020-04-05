@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { 
     fetchRooms, 
     updateCurrentRoom, 
-    fetchLights 
+    fetchLights,
+    powerLight
 } from '../../ducks/reducers/lights/actions'
 
 import { 
@@ -35,6 +36,7 @@ class Lights extends Component {
             lightsForCurrentRoom,
             roomsPending,
             lightsPending,
+            powerLight
         } = this.props;
         return (
             <React.Fragment>
@@ -48,6 +50,7 @@ class Lights extends Component {
                     <LightEditor 
                         currentLights={lightsForCurrentRoom}
                         pending={lightsPending}
+                        powerLight={powerLight}
                     />
                 </div>
             </React.Fragment>
@@ -69,6 +72,7 @@ const mapDispatchToProps = {
     fetchRooms,
     fetchLights,
     updateCurrentRoom,
+    powerLight
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Lights);

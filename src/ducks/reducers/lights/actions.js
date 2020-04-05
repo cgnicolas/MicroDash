@@ -8,6 +8,9 @@ export const UPDATE_CURRENT_ROOM = 'UPDATE_CURRENT_ROOM';
 export const FETCH_LIGHTS_PENDING = 'FETCH_LIGHTS_PENDING';
 export const FETCH_LIGHTS_SUCCESS = 'FETCH_LIGHTS_SUCCESS';
 export const FETCH_LIGHTS_ERROR = 'FETCH_LIGHTS_ERROR';
+export const POWER_LIGHT_PENDING = 'POWER_LIGHT_PENDING';
+export const POWER_LIGHT_SUCCESS = 'POWER_LIGHT_SUCCESS';
+export const POWER_LIGHT_ERROR = 'POWER_LIGHT_ERROR';
 
 export function updateCurrentRoom(currentRoom){
     return {
@@ -63,6 +66,55 @@ export function fetchLights(){
         .catch((err) => {
             dispatch(fetchLightsError(err));
         })
+    }
+}
+
+export function powerLight(id){
+    return function(dispatch){
+        const opts = {
+            serviceDetails: {
+                service: {
+                    name: 'Lights',
+                    process: 'power',
+                }
+            },
+            data: {
+                payload: {
+                    id
+                }
+            }
+        }
+        dispatch(powerLightPending());
+        axios.post(API.invokeService, opts)
+        .then((response) => {
+            dispatch(powerLightSuccess(response.data));
+            return response.data;
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch(powerLightError(err));
+            return err;
+        })
+    }
+}
+
+function powerLightPending(){
+    return {
+        type: POWER_LIGHT_PENDING,
+    }
+}
+
+function powerLightSuccess(lights){
+    return {
+        type: POWER_LIGHT_SUCCESS,
+        lights
+    }
+}
+
+function powerLightError(error){
+    return {
+        type: POWER_LIGHT_ERROR,
+        error
     }
 }
 

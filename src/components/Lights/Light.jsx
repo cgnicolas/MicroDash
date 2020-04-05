@@ -5,12 +5,12 @@ import PowerButton from './PowerButton';
 class Light extends Component {
 
     render() {
-        const { light, powered } = this.props;
+        const { light, powered, powerLight } = this.props;
         console.log(light.name, powered)
         return (
             <div className='light-container'>
                 <h4>{light.name}</h4>
-                <PowerButton powered={powered}/>
+                <PowerButton powered={powered} powerLight={() => {powerLight(light.id)}}/>
                 <HuePicker width={200}/>
                 <AlphaPicker width={200}/>
             </div>
