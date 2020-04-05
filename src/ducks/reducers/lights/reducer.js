@@ -4,9 +4,7 @@ const initialState = {
     rooms: [],
     lights: [],
     error: false,
-    currentRoom: {
-        id: 1
-    },
+    currentRoom: {},
 }
 
 function reducer(state = initialState, action){
@@ -14,35 +12,35 @@ function reducer(state = initialState, action){
         case FETCH_ROOMS_PENDING: 
             return {
                 ...state,
-                pending: true,
+                roomsPending: true,
             }
         case FETCH_ROOMS_SUCCESS:
             return {
                 ...state,
                 rooms: action.rooms,
-                pending: false,
+                roomsPending: false,
             }
         case FETCH_ROOMS_ERROR:
             return {
                 ...state,
-                pending: false,
+                roomsPending: false,
                 error: action.error,
             }
         case FETCH_LIGHTS_SUCCESS: 
             return { 
                 ...state,
-                pending: false,
+                lightsPending: false,
                 lights: action.lights
             }
         case FETCH_LIGHTS_PENDING:
             return {
                 ...state,
-                pending: true
+                lightsPending: true
             }
         case FETCH_LIGHTS_ERROR:
             return {
                 ...state,
-                pending: false,
+                lightsPending: false,
                 error: action.error
             }
         case UPDATE_CURRENT_ROOM:
@@ -54,6 +52,4 @@ function reducer(state = initialState, action){
             return state;
     }
 }
-export const selectRooms = state => state.lights.rooms;
-export const selectCurrentRoom = state => state.lights.currentRoom;
 export default reducer;

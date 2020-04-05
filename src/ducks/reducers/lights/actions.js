@@ -33,6 +33,9 @@ export function fetchRooms(){
         axios.post(API.invokeService, opts)
         .then((result) => {
             // console.log("Body", result.body);
+            if(result.data.length > 0){
+                dispatch(updateCurrentRoom(result.data[0]))
+            }
             dispatch(fetchRoomsSuccess(result.data));
         })
         .catch((err) => {
@@ -54,7 +57,6 @@ export function fetchLights(){
         }
         axios.post(API.invokeService, opts)
         .then((response) => {
-            console.log(response.data);
             dispatch(fetchLightsSuccess(response.data))
             return response.data
         })
@@ -71,7 +73,6 @@ function fetchLightsPending(){
 }
 
 function fetchLightsSuccess(lights){
-    console.log("Lights", lights)
     return {
         type: FETCH_LIGHTS_SUCCESS,
         lights: lights

@@ -2,14 +2,25 @@ import '../../styles/containers/Lights/Lights.css'
 import React, { Component } from 'react';
 import RoomSelector from '../../components/Lights/RoomSelector'
 import { connect } from 'react-redux';
-import { fetchRooms, updateCurrentRoom, fetchLights } from '../../ducks/reducers/lights/actions'
-import { selectRooms, selectCurrentRoom } from '../../ducks/reducers/lights/reducer';
-import LightSelector from '../../components/Lights/LightSelector';
+import { 
+    fetchRooms, 
+    updateCurrentRoom, 
+    fetchLights 
+} from '../../ducks/reducers/lights/actions'
+
+import { 
+    selectRooms, 
+    selectCurrentRoom, 
+    selectLightsForRoom,
+    selectLightsPending,
+    selectRoomsPending,
+} from '../../ducks/reducers/lights/selectors';
+
+import LightEditor from '../../components/Lights/LightEditor';
 class Lights extends Component {
 
     componentDidMount(){
         const {fetchRooms, rooms, fetchLights} = this.props;
-        console.log("Fetching rooms");
         if(rooms.length === 0){
             fetchRooms();
             fetchLights();
@@ -17,7 +28,14 @@ class Lights extends Component {
     }
 
     render() {
-        const {rooms, updateCurrentRoom, currentRoom} = this.props;
+        const {
+            rooms, 
+            updateCurrentRoom, 
+            currentRoom, 
+            lightsForCurrentRoom,
+            roomsPending,
+            lightsPending,
+        } = this.props;
         return (
             <React.Fragment>
                 <div className='lights-container'>
@@ -25,8 +43,12 @@ class Lights extends Component {
                         rooms={rooms} 
                         updateCurrentRoom={updateCurrentRoom} 
                         currentRoom={currentRoom}
+                        pending={roomsPending}
                     />
-                    <LightSelector/>
+                    <LightEditor 
+                        currentLights={lightsForCurrentRoom}
+                        pending={lightsPending}
+                    />
                 </div>
             </React.Fragment>
         );
@@ -36,7 +58,10 @@ class Lights extends Component {
 const mapStateToProps = state => {
     return {
         rooms: selectRooms(state),
-        currentRoom: selectCurrentRoom(state)
+        currentRoom: selectCurrentRoom(state),
+        lightsForCurrentRoom: selectLightsForRoom(state),
+        lightsPending: selectLightsPending(state),
+        roomsPending: selectRoomsPending(state),
     }
 }
 

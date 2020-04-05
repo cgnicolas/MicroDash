@@ -1,0 +1,17 @@
+
+export const selectLightsForRoom = state => {
+    const filter = (light) => {
+        const { currentRoom } = state.lights;
+        // console.log("currentRoom Lights", currentRoom.lights);
+        if(currentRoom.lights){
+            return currentRoom.lights.includes(light.id.toString());
+        }
+        return false;
+    }
+
+    return state.lights.lights.filter(filter);
+}
+export const selectRooms = state => state.lights.rooms;
+export const selectCurrentRoom = state => state.lights.currentRoom;
+export const selectRoomsPending = state => state.lights.roomsPending;
+export const selectLightsPending = state => state.lights.lightsPending;
