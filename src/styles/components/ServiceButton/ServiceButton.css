@@ -1,4 +1,4 @@
-button {
+.service-button {
   width: 100%;
   padding: 1em;
   font-size: 1.5em;
@@ -8,6 +8,11 @@ button {
 }
 
 .home {
+  width: 100%;
+  padding: 1em;
+  font-size: 1.5em;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
   background-color: #1E1E1E;
 }
 

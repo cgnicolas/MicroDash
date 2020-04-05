@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Light from './Light'
+import '../../styles/components/Lights/LightEditor/LightEditor.css'
 class LightEditor extends Component {
     render() {
         const { currentLights } = this.props;
@@ -9,9 +10,7 @@ class LightEditor extends Component {
                 {
                     currentLights.map((light, index) => {
                         return (
-                            <div key={index}>
-                                {light.name}
-                            </div>
+                            <Light key={index} light={light} powered={light.state.on}/>
                         )
                     })
                 }

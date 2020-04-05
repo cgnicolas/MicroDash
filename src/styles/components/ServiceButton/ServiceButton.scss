@@ -1,5 +1,5 @@
 @import '../../colors.scss';
-button {
+.service-button {
     width: 100%;
     padding: 1em;
     font-size: 1.5em;
@@ -7,7 +7,12 @@ button {
     border: none;
     color: $textNonFocused;
 }
-.home {
+.home {    
+    width: 100%;
+    padding: 1em;
+    font-size: 1.5em;
+    border: none;
+    color: $textNonFocused;
     background-color: $contentBG;
 }
 .selected-service {

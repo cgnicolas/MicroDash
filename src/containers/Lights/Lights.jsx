@@ -1,4 +1,3 @@
-import '../../styles/containers/Lights/Lights.css'
 import React, { Component } from 'react';
 import RoomSelector from '../../components/Lights/RoomSelector'
 import { connect } from 'react-redux';
@@ -17,6 +16,7 @@ import {
 } from '../../ducks/reducers/lights/selectors';
 
 import LightEditor from '../../components/Lights/LightEditor';
+import '../../styles/containers/Lights/Lights.css'
 class Lights extends Component {
 
     componentDidMount(){

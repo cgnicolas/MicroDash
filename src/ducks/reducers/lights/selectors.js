@@ -11,6 +11,11 @@ export const selectLightsForRoom = state => {
 
     return state.lights.lights.filter(filter);
 }
+
+function convertXYtoRGB(xy){
+    
+}
+
 export const selectRooms = state => state.lights.rooms;
 export const selectCurrentRoom = state => state.lights.currentRoom;
 export const selectRoomsPending = state => state.lights.roomsPending;
