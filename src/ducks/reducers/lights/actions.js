@@ -11,6 +11,9 @@ export const FETCH_LIGHTS_ERROR = 'FETCH_LIGHTS_ERROR';
 export const POWER_LIGHT_PENDING = 'POWER_LIGHT_PENDING';
 export const POWER_LIGHT_SUCCESS = 'POWER_LIGHT_SUCCESS';
 export const POWER_LIGHT_ERROR = 'POWER_LIGHT_ERROR';
+export const SET_LIGHT_COLOR_PENDING = 'SET_LIGHT_COLOR_PENDING';
+export const SET_LIGHT_COLOR_SUCCESS = "SET_LIGHT_COLOR_SUCCESS";
+export const SET_LIGHT_COLOR_ERROR = "SET_LIGHT_COLOR_ERROR";
 
 export function updateCurrentRoom(currentRoom){
     return {
@@ -98,6 +101,37 @@ export function powerLight(id){
     }
 }
 
+export function setLightColor(hex, id){
+    return function(dispatch){
+        const opts = {
+            serviceDetails: {
+                service: {
+                    name: 'Lights',
+                    process: 'setcolor',
+                }
+            },
+            data: {
+                payload: {
+                    state: {
+                        color: hex
+                    },
+                    id
+                }
+            }
+        }
+        dispatch(setLightColorPending());
+        axios.post(API.invokeService, opts)
+        .then((response) => {
+            dispatch(setLightColorSuccess(response.data));
+            return response.data;
+        })
+        .catch((error) => {
+            dispatch(setLightColorError(error));
+            return error;
+        })
+    }
+}
+
 function powerLightPending(){
     return {
         type: POWER_LIGHT_PENDING,
@@ -154,6 +188,26 @@ function fetchRoomsSuccess(rooms){
 function fetchRoomsError(error){
     return {
         type: FETCH_ROOMS_ERROR,
+        error
+    }
+}
+
+function setLightColorPending(){
+    return {
+        type: SET_LIGHT_COLOR_PENDING,
+    }
+}
+
+function setLightColorSuccess(lights){
+    return {
+        type: SET_LIGHT_COLOR_SUCCESS,
+        lights
+    }
+}
+
+function setLightColorError(error){
+    return {
+        type: SET_LIGHT_COLOR_ERROR,
         error
     }
 }

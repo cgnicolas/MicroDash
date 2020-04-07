@@ -9,6 +9,9 @@ import {
     POWER_LIGHT_SUCCESS,
     POWER_LIGHT_PENDING,
     POWER_LIGHT_ERROR,
+    SET_LIGHT_COLOR_PENDING,
+    SET_LIGHT_COLOR_SUCCESS,
+    SET_LIGHT_COLOR_ERROR,
 } from './actions';
 
 const initialState = {
@@ -66,7 +69,6 @@ function reducer(state = initialState, action){
                 powerLightPending: true,
             }
         case POWER_LIGHT_SUCCESS:
-            console.log("ACtionlgihts", action.lights)
             return {
                 ...state,
                 powerLightPending: false,
@@ -76,6 +78,23 @@ function reducer(state = initialState, action){
             return {
                 ...state,
                 currentRoom: action.currentRoom
+            }
+        case SET_LIGHT_COLOR_PENDING: 
+            return {
+                ...state,
+                setColorPending: true
+            }
+        case SET_LIGHT_COLOR_SUCCESS: 
+            return {
+                ...state,
+                setColorPending: false,
+                lights: action.lights
+            }
+        case SET_LIGHT_COLOR_ERROR:
+            return {
+                ...state,
+                setColorPending: false,
+                error: action.error
             }
         default:
             return state;
