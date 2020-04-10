@@ -14,6 +14,9 @@ export const POWER_LIGHT_ERROR = 'POWER_LIGHT_ERROR';
 export const SET_LIGHT_COLOR_PENDING = 'SET_LIGHT_COLOR_PENDING';
 export const SET_LIGHT_COLOR_SUCCESS = "SET_LIGHT_COLOR_SUCCESS";
 export const SET_LIGHT_COLOR_ERROR = "SET_LIGHT_COLOR_ERROR";
+export const SET_LIGHT_BRIGHTNESS_PENDING = "SET_LIGHT_BRIGHTNESS_PENDING";
+export const SET_LIGHT_BRIGHTNESS_SUCCESS = "SET_LIGHT_BRIGHTNESS_SUCCESS";
+export const SET_LIGHT_BRIGHTNESS_ERROR = "SET_LIGHT_BRIGHTNESS_ERROR";
 
 export function updateCurrentRoom(currentRoom){
     return {
@@ -129,6 +132,57 @@ export function setLightColor(hex, id){
             dispatch(setLightColorError(error));
             return error;
         })
+    }
+}
+
+export function setLightBrightness(brightness, id){
+    return function(dispatch){
+        const opts = {
+            serviceDetails: {
+                service: {
+                    name: "Lights",
+                    process: "setbrightness"
+                },
+            },
+            data: {
+                payload: {
+                    state: {
+                        bri: brightness
+                    },
+                    id
+                }
+            }
+        }
+        dispatch(setLightBrightnessPending());
+        axios.post(API.invokeService, opts)
+        .then((result) => {
+            dispatch(setLightBrightnessSuccess(result.data));
+            return result.data;
+        })
+        .catch((err) => {
+            dispatch(setLightBrightnessError(err));
+            return err;
+        })
+    }
+}
+
+function setLightBrightnessPending(){
+    return {
+        type: SET_LIGHT_BRIGHTNESS_PENDING,
+    }
+}
+
+function setLightBrightnessSuccess(lights){
+    return {
+        type: SET_LIGHT_BRIGHTNESS_SUCCESS,
+        lights,
+    }
+}
+
+function setLightBrightnessError(error){
+    return {
+        type: SET_LIGHT_BRIGHTNESS_ERROR,
+        error
     }
 }
 

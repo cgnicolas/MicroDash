@@ -12,6 +12,9 @@ import {
     SET_LIGHT_COLOR_PENDING,
     SET_LIGHT_COLOR_SUCCESS,
     SET_LIGHT_COLOR_ERROR,
+    SET_LIGHT_BRIGHTNESS_ERROR,
+    SET_LIGHT_BRIGHTNESS_PENDING,
+    SET_LIGHT_BRIGHTNESS_SUCCESS,
 } from './actions';
 
 const initialState = {
@@ -96,6 +99,24 @@ function reducer(state = initialState, action){
                 setColorPending: false,
                 error: action.error
             }
+        case SET_LIGHT_BRIGHTNESS_ERROR:
+            return {
+                ...state,
+                setBrightnessPending: false,
+                error: action.error
+            }
+        case SET_LIGHT_BRIGHTNESS_PENDING:
+            return {
+                ...state,
+                setBrightnessPending: true
+            }
+        case SET_LIGHT_BRIGHTNESS_SUCCESS:
+            return {
+                ...state,
+                setBrightnessPending: false,
+                lights: action.lights
+            }
+        
         default:
             return state;
     }

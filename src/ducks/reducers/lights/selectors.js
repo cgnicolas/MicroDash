@@ -8,7 +8,6 @@ export const selectLightsForRoom = state => {
         }
         return false;
     }
-    console.log("Filtering", state.lights);
     return state.lights.lights.filter(filter);
 }
 

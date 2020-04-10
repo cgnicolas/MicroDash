@@ -5,7 +5,8 @@ import colorConvert from '../../utils/colorConvert';
 class Light extends Component {
 
     state = {
-        tempColor: colorConvert(this.props.light.state.xy, this.props.light.state.bri)
+        tempColor: colorConvert(this.props.light.state.xy, this.props.light.state.bri),
+        tempBri: this.props.light.state.bri
     }
 
     constructor(props){
@@ -13,6 +14,8 @@ class Light extends Component {
 
         this.onColorChange = this.onColorChange.bind(this);
         this.onFinalColorChange = this.onFinalColorChange.bind(this);
+        this.onAlphaChange = this.onAlphaChange.bind(this);
+        this.onFinalAlphaChange = this.onFinalAlphaChange.bind(this);
     }
 
     onColorChange(color, event){
@@ -22,8 +25,21 @@ class Light extends Component {
     }
 
     onFinalColorChange(color, event){
-        const { setLightColor } = this.props;
-        setLightColor(color.hex, this.props.light.id);
+        const { setLightColor, light } = this.props;
+        setLightColor(color.hex, light.id);
+    }
+
+    onFinalAlphaChange(alpha, event){
+        const newAlpha = alpha.rgb.a;
+        const { setLightBrightness, light } = this.props;
+        // setLightBrightness(newAlpha, light.id)
+        setLightBrightness(alpha.rgb.a * 100, light.id)
+    }
+    
+    onAlphaChange(alpha, event){
+        this.setState({
+            tempColor: alpha.rgb
+        })
     }
 
     render() {
@@ -33,7 +49,7 @@ class Light extends Component {
                 <h4>{light.name}</h4>
                 <PowerButton powered={powered} powerLight={() => {powerLight(light.id)}}/>
                 <HuePicker width={200} color={this.state.tempColor} onChange={this.onColorChange} onChangeComplete={this.onFinalColorChange}/>
-                <AlphaPicker width={200}/>
+                <AlphaPicker onChange={this.onAlphaChange} onChangeComplete={this.onFinalAlphaChange} width={200} color={this.state.tempColor}/>
             </div>
         );
     }

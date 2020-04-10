@@ -32,5 +32,7 @@
 .powered {
   background-color: #474FC4;
   color: rgba(255, 255, 255, 0.95);
+  -webkit-transition: ease-in 1s;
+  transition: ease-in 1s;
 }
 /*# sourceMappingURL=LightEditor.css.map */
