@@ -11,22 +11,34 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding-left: 1em;
+  border-top: medium solid rgba(255, 255, 255, 0.95);
 }
 
 .light-container:nth-child(2n - 1) {
-  background-color: #121212;
+  background-color: black;
+}
+
+.light-name {
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
+}
+
+.power-button-container {
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
 }
 
 .power-button {
-  width: 100px;
+  width: 150px;
   height: 50px;
-  background-color: #474747;
-  border: none;
+  background-color: black;
+  border: medium solid rgba(255, 255, 255, 0.95);
   border-radius: 7px;
   color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: ease-in 1s;
+  transition: ease-in 1s;
 }
 
 .powered {
@@ -34,5 +46,15 @@
   color: rgba(255, 255, 255, 0.95);
   -webkit-transition: ease-in 1s;
   transition: ease-in 1s;
+}
+
+.picker {
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
+}
+
+.light-child {
+  margin: 0 3em;
 }
 /*# sourceMappingURL=LightEditor.css.map */

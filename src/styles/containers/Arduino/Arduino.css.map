@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACf,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,IAAI;EACX,cAAc,EAAE,MAAM;EACtB,gBAAgB,EAAE,GAAG;CACxB",
+    "sources": [
+        "Arduino.scss"
+    ],
+    "names": [],
+    "file": "Arduino.css"
+}

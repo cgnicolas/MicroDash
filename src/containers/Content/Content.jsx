@@ -7,6 +7,7 @@ import {
 } from '../../ducks/reducers/application/reducer'
 
 import Lights from '../Lights/Lights'
+import Arduino from '../Arduino/Arduino';
 
 class Content extends Component {
     render() {
@@ -16,6 +17,9 @@ class Content extends Component {
                 <div className='content-container'>
                     {(currentPage === 'Lights') && (
                         <Lights/>
+                    )}
+                    {(currentPage === 'Arduino') && (
+                        <Arduino/>
                     )}
                 </div>
             </React.Fragment>

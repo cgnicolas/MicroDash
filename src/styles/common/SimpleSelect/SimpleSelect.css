@@ -1,4 +1,4 @@
-.room-selector-container {
+.simple-select-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,13 +12,14 @@
           align-items: center;
 }
 
-.room-container {
+.simple-select-btn-container {
   height: 50%;
   background-color: black;
   color: rgba(255, 255, 255, 0.6);
   margin-left: 3em;
   width: 250px;
   border-radius: 25px;
+  border: medium solid rgba(255, 255, 255, 0.95);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,8 +31,8 @@
           align-items: center;
 }
 
-.selected-room {
+.selected {
   background-color: #474FC4;
   color: rgba(255, 255, 255, 0.95);
 }
-/*# sourceMappingURL=RoomSelector.css.map */
+/*# sourceMappingURL=SimpleSelect.css.map */

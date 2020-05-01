@@ -1,7 +1,10 @@
+@import '../../colors.scss';
 .navbar-container {
-    background-color: #121212;
+    // background-color: #121212;
+    background-color: $themeNonFocused;
     width: 15%;
     height: 100%;
+    border-right: medium solid $textNormal;
 }
 
 .serviceContainer {

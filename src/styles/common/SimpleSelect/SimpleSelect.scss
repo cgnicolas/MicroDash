@@ -1,0 +1,25 @@
+@import '../../../styles/colors.scss';
+.simple-select-container {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    align-items: center;
+}
+
+.simple-select-btn-container {
+    height: 50%;
+    background-color: $themeNonFocused;
+    color: $textNonFocused;
+    margin-left: 3em;
+    width: 250px;
+    border-radius: 25px;
+    border: medium solid $textNormal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected{
+    background-color: $navBG;
+    color: $textNormal;
+}

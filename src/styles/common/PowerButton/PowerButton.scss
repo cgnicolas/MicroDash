@@ -1,0 +1,15 @@
+@import '../../colors.scss';
+.power-button {
+    width: 150px;
+    height: 50px;
+    background-color: $themeNonFocused;
+    border: medium solid $textNormal;
+    border-radius: 7px;
+    color: $textNonFocused;
+    transition: ease-in 1s;
+}
+.powered {
+    background-color: $navBG;
+    color: $textNormal;
+    transition: ease-in 1s;
+}

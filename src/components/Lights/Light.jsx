@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { HuePicker, AlphaPicker } from 'react-color';
-import PowerButton from './PowerButton';
+import PowerButton from '../common/PowerButton';
 import colorConvert from '../../utils/colorConvert';
 class Light extends Component {
 
     state = {
-        tempColor: colorConvert(this.props.light.state.xy, this.props.light.state.bri),
+        tempColor: colorConvert(this.props.light.state.hue, this.props.light.state.sat, this.props.light.state.bri),
         tempBri: this.props.light.state.bri
     }
 
@@ -46,10 +46,24 @@ class Light extends Component {
         const { light, powered, powerLight } = this.props;
         return (
             <div className='light-container'>
-                <h4>{light.name}</h4>
-                <PowerButton powered={powered} powerLight={() => {powerLight(light.id)}}/>
-                <HuePicker width={200} color={this.state.tempColor} onChange={this.onColorChange} onChangeComplete={this.onFinalColorChange}/>
-                <AlphaPicker onChange={this.onAlphaChange} onChangeComplete={this.onFinalAlphaChange} width={200} color={this.state.tempColor}/>
+                <h4 className='light-name light-child'>{light.name}</h4>
+                <PowerButton className='light-child' powered={powered} powerLight={() => {powerLight(light.id)}}/>
+                <HuePicker 
+                    className='picker light-child'
+                    height={20}
+                    width={200} 
+                    color={this.state.tempColor} 
+                    onChange={this.onColorChange} 
+                    onChangeComplete={this.onFinalColorChange}
+                />
+                <AlphaPicker 
+                    className='picker light-child'
+                    onChange={this.onAlphaChange} 
+                    onChangeComplete={this.onFinalAlphaChange} 
+                    width={200}
+                    height={20} 
+                    color={this.state.tempColor}
+                />
             </div>
         );
     }

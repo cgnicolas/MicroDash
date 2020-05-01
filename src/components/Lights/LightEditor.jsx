@@ -9,7 +9,6 @@ class LightEditor extends Component {
             setLightColor,
             setLightBrightness
         } = this.props;
-        console.log("currentLights", currentLights)
         return (
             <div className='lighteditor-container'>
                 {

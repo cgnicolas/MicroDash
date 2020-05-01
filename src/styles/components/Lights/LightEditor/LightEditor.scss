@@ -1,28 +1,31 @@
 @import '../../../colors.scss';
+$spaceVal: .25;
 .light-container {
     width: 100%;
     height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    padding-left: 1em;
+    // padding-left: 1em;
+    border-top: medium solid $textNormal;
 }
 
 .light-container:nth-child(2n - 1){
     background-color: $themeBG;
 }
 
-.power-button {
-    width: 100px;
-    height: 50px;
-    background-color: $themeNonFocused;
-    border: none;
-    border-radius: 7px;
-    color: $textNonFocused;
+.light-name {
+    flex: $spaceVal;
 }
-.powered {
-    background-color: $navBG;
-    color: $textNormal;
-    transition: ease-in 1s;
+
+.power-button-container {
+    flex: $spaceVal;
+}
+
+.picker {
+    flex: $spaceVal;
+}
+
+.light-child {
+    margin: 0 3em;
 }

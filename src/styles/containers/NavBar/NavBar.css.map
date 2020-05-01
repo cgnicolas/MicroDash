@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CACf;;AAED,AAAA,iBAAiB,CAAC;EACd,QAAQ,EAAE,MAAM;CACnB",
+    "mappings": "AACA,AAAA,iBAAiB,CAAC;EAEd,gBAAgB,ECEF,KAAK;EDDnB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,YAAY,EAAE,MAAM,CAAC,KAAK,CCCjB,yBAAwB;CDApC;;AAED,AAAA,iBAAiB,CAAC;EACd,QAAQ,EAAE,MAAM;CACnB",
     "sources": [
-        "NavBar.scss"
+        "NavBar.scss",
+        "../../colors.scss"
     ],
     "names": [],
     "file": "NavBar.css"

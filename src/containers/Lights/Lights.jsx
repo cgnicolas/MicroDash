@@ -20,6 +20,7 @@ import {
 
 import LightEditor from '../../components/Lights/LightEditor';
 import '../../styles/containers/Lights/Lights.css'
+import SimpleSelect from '../../components/common/SimpleSelect/SimpleSelect';
 class Lights extends Component {
 
     componentDidMount(){
@@ -45,11 +46,16 @@ class Lights extends Component {
         return (
             <React.Fragment>
                 <div className='lights-container'>
-                    <RoomSelector 
+                    {/* <RoomSelector 
                         rooms={rooms} 
                         updateCurrentRoom={updateCurrentRoom} 
                         currentRoom={currentRoom}
                         pending={roomsPending}
+                    /> */}
+                    <SimpleSelect
+                        buttons={rooms}
+                        current={currentRoom}
+                        clickHandler={updateCurrentRoom}
                     />
                     <LightEditor 
                         currentLights={lightsForCurrentRoom}
