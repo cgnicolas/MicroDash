@@ -46,12 +46,6 @@ class Lights extends Component {
         return (
             <React.Fragment>
                 <div className='lights-container'>
-                    {/* <RoomSelector 
-                        rooms={rooms} 
-                        updateCurrentRoom={updateCurrentRoom} 
-                        currentRoom={currentRoom}
-                        pending={roomsPending}
-                    /> */}
                     <SimpleSelect
                         buttons={rooms}
                         current={currentRoom}

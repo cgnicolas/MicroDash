@@ -1,0 +1,31 @@
+@import '../../colors.scss';
+
+$modalWidth: 500px;
+$modalHeight: 500px;
+.special-modal-container {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.88);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.special-modal{
+    background-color: $modalBackground;
+    border-radius: 7px;
+    border: medium solid $textNormal;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 1em;
+}
+
+.special-modal-title {
+    align-self: flex-end;
+}

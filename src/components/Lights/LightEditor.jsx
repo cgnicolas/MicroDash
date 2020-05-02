@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Light from './Light'
-import '../../styles/components/Lights/LightEditor/LightEditor.css'
+import '../../styles/components/Lights/LightEditor/LightEditor.scss'
 class LightEditor extends Component {
     render() {
         const { 
@@ -10,7 +10,7 @@ class LightEditor extends Component {
             setLightBrightness
         } = this.props;
         return (
-            <div className='lighteditor-container'>
+            <div className='light-editor-container'>
                 {
                     currentLights.map((light, index) => {
                         return (

@@ -1,0 +1,65 @@
+// @import '../../colors.scss';
+// $spaceVal: .25;
+// .arduino-editor-container {
+//     width: 100%;
+//     flex:1;
+// }
+
+// .light-arduino-container{
+//     display: flex;
+//     flex-direction: row;
+//     height: 100px;
+//     align-items: center;
+//     border-top: medium solid white;
+// }
+
+// .arduino-name {
+//     flex: $spaceVal;
+// }
+
+// .power-button-container {
+//     flex: $spaceVal;
+// }
+
+// .special-button-container {
+//     flex: $spaceVal;
+// }
+
+// .arduino-child{
+//     margin: 0 3em;
+// }
+
+@import '../../colors.scss';
+$spaceVal: .25;
+.light-arduino-container {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // padding-left: 1em;
+    border-top: medium solid $textNormal;
+}
+
+.arduino-container:nth-child(2n - 1){
+    background-color: $themeBG;
+}
+
+.arduino-name {
+    flex: $spaceVal;
+}
+
+.power-button-container {
+    flex: $spaceVal;
+}
+
+.common-button-container {
+    flex: $spaceVal;
+}
+
+.picker {
+    flex: $spaceVal;
+}
+
+.arduino-child {
+    margin: 0 3em;
+}

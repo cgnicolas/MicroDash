@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import {
     fetchArduinos,
     updateCurrentType,
-    powerArduino
+    powerArduino,
+    setArduinoColor,
+    invokeUnique
 } from '../../ducks/reducers/arduino/actions';
 
 import {
@@ -28,7 +30,9 @@ class Arduino extends Component {
             arduinoTypes,
             updateCurrentType,
             currentType,
-            powerArduino
+            powerArduino,
+            setArduinoColor,
+            invokeUnique,
         } = this.props;
         return (
             <React.Fragment>
@@ -41,6 +45,8 @@ class Arduino extends Component {
                     <ArduinoEditor
                         arduinoStates={arduinoStates}
                         powerArduino={powerArduino}
+                        setArduinoColor={setArduinoColor}
+                        invokeUnique={invokeUnique}
                     />
                 </div>
             </React.Fragment>
@@ -60,6 +66,8 @@ const mapDispatchToProps = {
     fetchArduinos,
     updateCurrentType,
     powerArduino,
+    setArduinoColor,
+    invokeUnique
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Arduino);

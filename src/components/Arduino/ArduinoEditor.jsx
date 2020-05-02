@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import LightArduino from './types/LightArduino';
-import '../../styles/components/Arduino/Arduino.scss'
+import '../../styles/components/Arduino/ArduinoEditor.scss'
 class ArduinoEditor extends Component {
     render() {
         const { 
             arduinoStates,
-            powerArduino
+            powerArduino,
+            setArduinoColor,
+            invokeUnique
         } = this.props;
         return (
             <div className='arduino-editor-container'>
@@ -14,9 +16,12 @@ class ArduinoEditor extends Component {
                         switch (arduino.type) {
                             case 'Light':
                                 return <LightArduino
-                                    powered={arduino.powered}
-                                    arduino={arduino}
-                                    powerArduino={powerArduino}
+                                        key={index}
+                                        powered={arduino.powered}
+                                        arduino={arduino}
+                                        powerArduino={powerArduino}
+                                        setArduinoColor={setArduinoColor}
+                                        invokeUnique={invokeUnique}
                                     />
                         }
                     })

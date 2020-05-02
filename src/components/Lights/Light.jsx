@@ -47,7 +47,9 @@ class Light extends Component {
         return (
             <div className='light-container'>
                 <h4 className='light-name light-child'>{light.name}</h4>
-                <PowerButton className='light-child' powered={powered} powerLight={() => {powerLight(light.id)}}/>
+                <div className='power-button-container'>
+                    <PowerButton className='light-child' powered={powered} powerLight={() => {powerLight(light.id)}}/>
+                </div>
                 <HuePicker 
                     className='picker light-child'
                     height={20}

@@ -1,4 +1,18 @@
-import { FETCH_ARDUINOS_SUCCESS, FETCH_ARDUINOS_ERROR, FETCH_ARDUINOS_PENDING, UPDATE_CURRENT_ARDUINO_TYPE, POWER_ARDUINO_PENDING, POWER_ARDUINO_SUCCESS, POWER_ARDUINO_ERROR } from './actions';
+import { 
+    FETCH_ARDUINOS_SUCCESS,
+    FETCH_ARDUINOS_ERROR,
+    FETCH_ARDUINOS_PENDING,
+    UPDATE_CURRENT_ARDUINO_TYPE,
+    POWER_ARDUINO_PENDING,
+    POWER_ARDUINO_SUCCESS,
+    POWER_ARDUINO_ERROR,
+    SET_ARDUINO_COLOR_SUCCESS,
+    SET_ARDUINO_COLOR_ERROR,
+    SET_ARDUINO_COLOR_PENDING,
+    INVOKE_UNIQUE_ERROR,
+    INVOKE_UNIQUE_PENDING,
+    INVOKE_UNIQUE_SUCCESS
+} from './actions';
 
 const initialState = {
     arduinoStates: [],
@@ -45,6 +59,40 @@ function reducer(state = initialState, action){
             return {
                 ...state,
                 powerArduinoPending: false,
+                error: action.error
+            }
+        case SET_ARDUINO_COLOR_PENDING: 
+            return {
+                ...state,
+                setArduinoColorPending: true,
+            }
+        case SET_ARDUINO_COLOR_SUCCESS:
+            return {
+                ...state,
+                setArduinoColorPending: false,
+                arduinoStates: action.arduinoStates,
+            }
+        case SET_ARDUINO_COLOR_ERROR:
+            return {
+                ...state,
+                setArduinoColorPending: false,
+                error: action.error
+            }
+        case INVOKE_UNIQUE_PENDING:
+            return {
+                ...state,
+                invokeUniquePending: true,
+            }
+        case INVOKE_UNIQUE_SUCCESS:
+            return {
+                ...state,
+                invokeUniquePending: false,
+                arduinoStates: action.arduinoStates
+            }
+        case INVOKE_UNIQUE_ERROR:
+            return {
+                ...state,
+                invokeUniquePending: false,
                 error: action.error
             }
     }

@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+.unique-container {
+    display: flex;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.unique {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unique-child:nth-child(n+2) {
+    margin-top: .5em;
+}
