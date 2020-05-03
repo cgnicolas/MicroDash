@@ -6,8 +6,9 @@ import {
     selectCurrentPage
 } from '../../ducks/reducers/application/reducer'
 
-import Lights from '../Lights/Lights'
+import Lights from '../Lights/Lights';
 import Arduino from '../Arduino/Arduino';
+import Home from '../Home/Home';
 
 class Content extends Component {
     render() {
@@ -15,6 +16,9 @@ class Content extends Component {
         return (
             <React.Fragment>
                 <div className='content-container'>
+                    {(currentPage === 'Home') && (
+                        <Home/>
+                    )}
                     {(currentPage === 'Lights') && (
                         <Lights/>
                     )}
